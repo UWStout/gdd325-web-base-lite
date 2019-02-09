@@ -4,9 +4,9 @@
 # Recommended Software and Tools
 Before getting started, install and configure software as follows:
 - Install [Git for Windows](https://git-scm.com/download/win) and configure as follows
-  - Enable checking for updates: This option comes up early in the install wizard
-  - Choose the default editor used by git: Change to 'Use nano as the default editor'
-  - Configuring line endings: change to 'Check out as-is, commit unix style'
+  - _Enable checking for updates_: This option comes up early in the install wizard
+  - _Choose the default editor used by git_: Change to 'Use nano as the default editor'
+  - _Configuring line endings_: change to 'Check out as-is, commit unix style'
 - Install [node.js](https://nodejs.org/) LTS version (the even numbered version, NOT the odd one)
 - Install [Visual Studio Code](https://code.visualstudio.com/)
   - At 'Additional Tasks', ENABLE the TWO 'Open with Code' options and the 'Create a Desktop Icon' option.
@@ -28,12 +28,12 @@ To retrieve the code and install dependencies:
 To serve the 'public' directory while DEVELOPING the code:
 - From the terminal, run 'npm run dev'
 - All changes to files under the 'public' directory will automatically reload the browser
-- A global JavaScript variable __DEV__ will be set to true and debugging info will appear
+- A global JavaScript variable \_\_DEV__ will be set to true and debugging info will appear
 
 To serve the 'public directory for PLAING the game:
 - From the termainl, run 'npm start'
 - All changes to files will still automatically reload the browser
-- Debug info will NOT display and __DEV__ will be set to false
+- Debug info will NOT display and \_\_DEV__ will be set to false
 
 # How it Works
 This project is really just a way to serve your Phaser files locally.  It uses browser-sync: a simple web server that runs
@@ -47,13 +47,20 @@ If you only run your project in a modern version of Chrome then most of ES6 IS s
 your game in older browsers.  For wider browser compatibility and better ES6 support, please use the full, heavyweight 
 gdd325-web-base project available here on github.
 
+# Adding Files
+When you are editing the code, consider using multiple JavaScript files to separate your code. If you add a new JavaScript file it
+must be MANUALLY added to the list of files in the HTML \<body> tag. Be sure to edit the __index.html__ in the root folder of the
+project NOT the one in public which is automatically generated (see 'Project Structure' below).
+
 # Phaser 3 and Plugins
 This project is now based on phaser 3 (NOT the 'community edition', sometimes called Phaser 2). It will setup and use the
 [debug draw](https://github.com/samme/phaser-plugin-debug-draw) and [scene update](https://github.com/samme/phaser-plugin-update)
 plugins by default. Debug draw is only enabled when running in dev mode.
 
 # Project Structure
-The various folders in the project directory all serve specific purposes. Please try to adhere to the conventions listed below when adding new files to your project so that things stay organized and it is easier to work concurrently without stepping on each other's toes.
+The various folders in the project directory all serve specific purposes. Please try to adhere to the conventions listed
+below when adding new files to your project so that things stay organized and it is easier to work concurrently without
+stepping on each other's toes.
 
 The project folders are structured as follows:
 * __index.html__ - HTML file used in non-dev mode (edit to include extra js files if needed).
