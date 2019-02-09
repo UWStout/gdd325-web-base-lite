@@ -101,14 +101,14 @@ The following folders and files are managed by the tools and are automatically g
 # Included Example Code
 The included example is very similar to the [Hello World example](https://phaser.io/tutorials/getting-started-phaser3/part5)
 found in Phaser's own getting started guide. The example has been changed as follows:
-- The preload and create methods have been moved to a stage object in its own file `src/GameStage.js`.
-- An init() method was added to the stage that shows the message "loading ..." while assets are loading.
-- The file config.js was added which contains some global configuration settings (like the game window size).
-- The file utils.js was added with some handy functions that might be useful in several places in your code.
-- The new ScaleManager was added to the game config in main.js (see the 'scale' property).
-- The scene is no longer loaded in the config but is loaded manually in the code at the end of main.js.
-- Two plugins are installed and enabled by default: the UpdatePlugin and the DebugDrawPlugin.
-- The UpdatePlugin is very useful in Phaser 3 and you should read about it 
+- The `preload()` and `create()` methods have been moved to a stage object in its own file `src/GameStage.js`.
+- An `init()` method was added to the stage that shows the message "loading ..." while assets are loading.
+- The file `config.js` was added which contains some global configuration settings (like the game window size).
+- The file `utils.js` was added with some handy functions that might be useful in several places in your code.
+- The new `ScaleManager` was added to the game config in `main.js` (see the 'scale' property).
+- The scene is no longer loaded in the config but is loaded manually in the code at the end of `main.js`.
+- Two plugins are installed and enabled by default: the `UpdatePlugin` and the `DebugDrawPlugin` (in dev mode).
+- The `UpdatePlugin` is very useful in Phaser 3 and you should read about it 
 [here](https://github.com/samme/phaser-plugin-update).
 
 # Tips for Project Success
