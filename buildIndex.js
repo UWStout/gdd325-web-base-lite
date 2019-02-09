@@ -59,35 +59,41 @@ let buildType = (process.env.__DEV__ ? 'dev' : 'prod')
 // Inject all the library lines for this build type
 let mainLibLineNum = getMatchLineNumber(mainLib.line)
 if (mainLibLineNum > 0) {
-  console.log(`Found ${mainLib.line} as ${mainLibLineNum + 1}`)
+  console.log(`Found ${mainLib.line} at ${mainLibLineNum + 1}`)
   mainLib.items.forEach((libItem) => {
     if (libItem.type.indexOf(buildType) >= 0) {
       let libLine = makeScriptStringLib(libItem.lib)
       insertLine('./public/index.html').contentSync(libLine).at(mainLibLineNum + 1)
     }
   })
+} else {
+  console.error(`${mainLib.line} not found!`)
 }
 
 // Inject all the plugins for this build type
 let pluginsLineNum = getMatchLineNumber(plugins.line)
 if (pluginsLineNum > 0) {
-  console.log(`Found ${plugins.line} as ${pluginsLineNum + 1}`)
+  console.log(`Found ${plugins.line} at ${pluginsLineNum + 1}`)
   plugins.items.forEach((pluginItem) => {
     if (pluginItem.type.indexOf(buildType) >= 0) {
       let libLine = makeScriptStringLib(pluginItem.lib)
       insertLine('./public/index.html').contentSync(libLine).at(pluginsLineNum + 1)
     }
   })
+} else {
+  console.error(`${plugins.line} not found!`)
 }
 
 // Inject all the dev lines of code for this build type
 let devLineNum = getMatchLineNumber(devLines.line)
 if (devLineNum > 0) {
-  console.log(`Found ${devLines.line} as ${devLineNum + 1}`)
+  console.log(`Found ${devLines.line} at ${devLineNum + 1}`)
   devLines.items.forEach((devItem) => {
     if (devItem.type.indexOf(buildType) >= 0) {
       let devLine = makeScriptStringCode(devItem.code)
       insertLine('./public/index.html').contentSync(devLine).at(devLineNum + 1)
     }
   })
+} else {
+  console.error(`${devLines.line} not found!`)
 }

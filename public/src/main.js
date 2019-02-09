@@ -1,4 +1,4 @@
-/* global __DEV__, PhaserDebugDrawPlugin, GameScene */
+/* global GameScene */
 
 // Configure any plugins
 let scenePlugins = [{

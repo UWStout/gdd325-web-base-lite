@@ -1,6 +1,7 @@
 /**
- * utils.js: Simple, one-off functions that help reduce code in places
+ * utils.js: Simple functions that help reduce code in places
  * throughout your game. Put short, reusable code snippits in here.
+ * Don't forget to add them to 'window' at the end!
  */
 
 /**
@@ -57,3 +58,10 @@ const centerY = (scene) => {
     return gameHeight(scene) / 2
   }
 }
+
+// Export all functions to the global context
+window.centerGameObjects = centerGameObjects
+window.centerX = centerX
+window.centerY = centerY
+window.gameWidth = gameWidth
+window.gameHeight = gameHeight

@@ -1,5 +1,4 @@
-/* global __DEV__, centerX, centerY, centerGameObjects */
-/* extern GameScene */
+/* global centerX, centerY, centerGameObjects */
 
 class GameScene extends Phaser.Scene {
   // Run when the scene is first loaded
@@ -52,3 +51,6 @@ class GameScene extends Phaser.Scene {
     }
   }
 }
+
+// Ensure this is a globally accessible class
+window.GameScene = GameScene

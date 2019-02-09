@@ -1,10 +1,10 @@
 {
   "extends": "standard",
-  "env": {
-    "browser": true
-  },
+  "env": { "browser": true },
   "globals": {
-    "Phaser": true
+    "Phaser": true,
+    "__DEV__": true,
+    "PhaserDebugDrawPlugin": true
   },
   "rules": {
     "import/no-unresolved": [2],
