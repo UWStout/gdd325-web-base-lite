@@ -7,6 +7,7 @@ Before getting started, install and configure software as follows:
   - _Enable checking for updates_: This option comes up early in the install wizard
   - _Choose the default editor used by git_: Change to 'Use nano as the default editor'
   - _Configuring line endings_: change to 'Check out as-is, commit unix style'
+  - WARNING: Installing Git for Windows to something other than the default directory may break integration with VS Code
 - Install [node.js](https://nodejs.org/) LTS version (the even numbered version, NOT the odd one)
 - Install [Visual Studio Code](https://code.visualstudio.com/)
   - At 'Additional Tasks', ENABLE the TWO 'Open with Code' options and the 'Create a Desktop Icon' option.
