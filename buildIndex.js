@@ -36,7 +36,7 @@ let mainLib = {
 let plugins = {
   line: 'PLUGINS GO HERE',
   items: [
-    { type: 'prodAndDev', lib: 'https://cdn.jsdelivr.net/npm/phaser-plugin-update@1.0.1/dist/UpdatePlugin.js' },
+    { type: 'proddev', lib: 'https://cdn.jsdelivr.net/npm/phaser-plugin-update@1.0.1/dist/UpdatePlugin.js' },
     { type: 'dev', lib: 'https://cdn.jsdelivr.net/npm/phaser-plugin-debug-draw@1.0.2/dist/PhaserDebugDrawPlugin.js' }
   ]
 }
