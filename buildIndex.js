@@ -54,7 +54,16 @@ let devLines = {
 fs.copyFileSync('./index.html', './public/index.html')
 
 // Determine the build type from environment variables
-let buildType = (process.env.__DEV__ ? 'dev' : 'prod')
+let buildType = 'prod'
+
+// Check command line arguments for specified build type
+if (process.argv.length > 2) {
+  if (process.argv[2].toLowerCase() === 'dev' || process.argv[2].toLowerCase() === 'prod') {
+    buildType = process.argv[2].toLowerCase()
+  } else {
+    console.log(`Unrecognized build type ${process.argv[2].toLowerCase()}, defaulting to prod`)
+  }
+}
 
 // Inject all the library lines for this build type
 let mainLibLineNum = getMatchLineNumber(mainLib.line)

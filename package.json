@@ -8,9 +8,9 @@
   "scripts": {
     "start": "npm-run-all -s buildindex server",
     "dev": "npm-run-all -s cpdevindex server",
-    "buildindex": "node buildIndex",
-    "cpdevindex": "__DEV__=true node buildIndex",
-    "server": "browser-sync start -s 'public' -w -f 'public/**/*' -b 'google chrome'",
+    "buildindex": "node buildIndex prod",
+    "cpdevindex": "node buildIndex dev",
+    "server": "browser-sync start -s public -w -f public/**/* -b chrome",
     "test": "eslint ./public/src/**/**.js"
   },
   "license": "MIT",
