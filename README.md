@@ -31,7 +31,7 @@ To serve the 'public' directory while DEVELOPING the code:
 - All changes to files under the 'public' directory will automatically reload the browser
 - A global JavaScript variable \_\_DEV__ will be set to true and debugging info will appear
 
-To serve the 'public directory for PLAYING or DEMOING the game:
+To serve the 'public' directory for PLAYING or DEMOING the game:
 - From the termainl, run 'npm start'
 - All changes to files will still automatically reload the browser
 - Debug info will NOT display and \_\_DEV__ will be set to false
