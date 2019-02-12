@@ -13,7 +13,13 @@ class GameScene extends Phaser.Scene {
   // entities (runs after all queued assets are loaded)
   create () {
     // The background sky
-    this.add.image(400, 300, 'sky')
+    let background = this.add.image(0, 0, 'sky')
+    background.setScale(
+      window.CONFIG.DEFAULT_WIDTH / background.width,
+      window.CONFIG.DEFAULT_HEIGHT / background.height
+    )
+
+    background.setOrigin(0, 0)
 
     // A sprite to use as a particle
     let particles = this.add.particles('red')

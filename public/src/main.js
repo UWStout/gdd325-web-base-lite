@@ -2,13 +2,20 @@
 
 // Core phaser configuration object
 let config = {
-  type: Phaser.AUTO,
-  width: 800,
-  height: 600,
+  type: Phaser.WEBGL,
+  title: 'GDD 325 Web Base Lite TUTORIAL',
+  backgroundColor: '#7f7f7f',
+  scale: {
+    parent: 'content',
+    mode: Phaser.Scale.FIT,
+    autoCenter: Phaser.Scale.CENTER_HORIZONTAL,
+    width: window.CONFIG.DEFAULT_WIDTH,
+    height: window.CONFIG.DEFAULT_HEIGHT
+  },
   physics: {
     default: 'arcade',
     arcade: {
-      gravity: { y: 200 }
+      gravity: { y: window.CONFIG.DEFAULT_GRAVITY }
     }
   }
 }
