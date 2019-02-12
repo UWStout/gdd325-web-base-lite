@@ -28,8 +28,8 @@ function getMatchLineNumber (matchString) {
 let mainLib = {
   line: 'LIBS GO HERE',
   items: [
-    { type: 'prod', lib: 'https://cdn.jsdelivr.net/npm/phaser@3.16.1/dist/phaser.min.js' },
-    { type: 'dev', lib: 'https://cdn.jsdelivr.net/npm/phaser@3.16.1/dist/phaser.js' }
+    { type: 'prod', lib: 'https://cdn.jsdelivr.net/npm/phaser@3.16.2/dist/phaser.min.js' },
+    { type: 'dev', lib: 'https://cdn.jsdelivr.net/npm/phaser@3.16.2/dist/phaser.js' }
   ]
 }
 
