@@ -3,11 +3,7 @@ class GameScene extends Phaser.Scene {
   // Queue up assets to load from our local assets directory
   // Note: these are loaded asyncronously after preload() completes
   // and before 'create()' is run.
-  preload () {
-    this.load.image('sky', 'assets/skies/space3.png')
-    this.load.image('logo', 'assets/sprites/phaser3-logo.png')
-    this.load.image('red', 'assets/particles/red.png')
-  }
+  preload () {}
 
   // Build the scene by adding GameObjects and configuring specific
   // entities (runs after all queued assets are loaded)
@@ -41,5 +37,16 @@ class GameScene extends Phaser.Scene {
 
     // Make the emitter follow the logo
     emitter.startFollow(logo)
+
+    this.input.keyboard.on('keyup', this.keyReleased, this)
+  }
+
+  update () {
+    console.log('Main scene is running')
+  }
+
+  keyReleased () {
+    console.log('switching scenes')
+    this.scene.start('start')
   }
 }
