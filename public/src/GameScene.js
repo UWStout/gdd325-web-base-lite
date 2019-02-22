@@ -34,11 +34,20 @@ class GameScene extends Phaser.Scene {
     logo.setVelocity(100, 200)
     logo.setBounce(1, 1)
     logo.setCollideWorldBounds(true)
+    logo.body.onWorldBounds = true
 
     // Make the emitter follow the logo
     emitter.startFollow(logo)
 
     this.input.keyboard.on('keyup', this.keyReleased, this)
+
+    // Make sound and music instances
+    this.hitSound = this.sound.add('hitSFX', { volume: 1.0 })
+    this.music = this.sound.add('mainMusic', { volume: 0.2, loop: true })
+    this.music.play()
+
+    // Setup a world bounds callback
+    this.physics.world.on('worldbounds', () => { this.hitSound.play() }, this)
   }
 
   update () {
@@ -48,5 +57,6 @@ class GameScene extends Phaser.Scene {
   keyReleased () {
     console.log('switching scenes')
     this.scene.start('start')
+    this.music.stop()
   }
 }

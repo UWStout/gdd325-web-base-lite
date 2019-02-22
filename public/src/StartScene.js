@@ -19,6 +19,10 @@ class StartScene extends Phaser.Scene {
     this.load.image('logo', 'assets/sprites/phaser3-logo.png')
     this.load.image('red', 'assets/particles/red.png')
 
+    this.load.audio('startMusic', 'assets/audio/freeVertexStudioTrack1.mp3')
+    this.load.audio('mainMusic', 'assets/audio/freeVertexStudioTrack2.mp3')
+    this.load.audio('hitSFX', 'assets/audio/hitSound.mp3')
+
     for (let i = 0; i < 30; i++) {
       this.load.image(`background${i}`, 'assets/StartScreen.png')
     }
@@ -39,6 +43,9 @@ class StartScene extends Phaser.Scene {
     background.setOrigin(0.5, 0.5)
 
     this.input.keyboard.on('keyup', this.keyReleased, this)
+
+    this.music = this.sound.add('startMusic', { volume: 0.2, loop: true })
+    this.music.play()
   }
 
   update () {
@@ -48,5 +55,6 @@ class StartScene extends Phaser.Scene {
   keyReleased () {
     console.log('switching scenes')
     this.scene.start('main')
+    this.music.stop()
   }
 }
