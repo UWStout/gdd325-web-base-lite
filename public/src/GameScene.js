@@ -8,13 +8,11 @@ class GameScene extends Phaser.Scene {
   // Build the scene by adding GameObjects and configuring specific
   // entities (runs after all queued assets are loaded)
   create () {
-    // The background sky
-    let background = this.add.image(0, 0, 'sky')
-    background.setScale(
-      window.CONFIG.DEFAULT_WIDTH / background.width,
-      window.CONFIG.DEFAULT_HEIGHT / background.height
-    )
+    let worldWidth = window.CONFIG.DEFAULT_WIDTH * 1.5
+    let worldHeight = window.CONFIG.DEFAULT_HEIGHT
 
+    // The background sky
+    let background = this.add.tileSprite(0, 0, worldWidth, worldHeight, 'sky')
     background.setOrigin(0, 0)
 
     // A sprite to use as a particle
@@ -48,14 +46,23 @@ class GameScene extends Phaser.Scene {
 
     // Setup a world bounds callback
     this.physics.world.on('worldbounds', () => { this.hitSound.play() }, this)
+    this.physics.world.setBounds(0, 0, worldWidth, worldHeight)
+
+    this.cameras.main.startFollow(logo)
+    this.cameras.main.setBounds(0, 0, worldWidth, worldHeight)
+    this.cameras.main.setDeadzone(window.CONFIG.DEFAULT_WIDTH * 0.4)
+    this.cameras.main.setLerp(0.1, 0.1)
+
+    this.scene.run('info')
   }
 
   update () {
     console.log('Main scene is running')
   }
-
+  
   keyReleased () {
     console.log('switching scenes')
+    this.scene.stop('info')
     this.scene.start('start')
     this.music.stop()
   }

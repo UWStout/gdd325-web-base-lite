@@ -1,4 +1,4 @@
-/* global GameScene, StartScene */
+/* global GameScene, StartScene, HUDScene */
 
 // Core phaser configuration object
 let config = {
@@ -27,5 +27,6 @@ window.game = new Phaser.Game(config)
 
 // Tell it how to make a GameScene object and let it automatically start
 window.game.scene.add('main', GameScene)
+window.game.scene.add('info', HUDScene)
 window.game.scene.add('start', StartScene)
 window.game.scene.start('start')
