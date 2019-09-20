@@ -10,20 +10,23 @@
     "dev": "npm-run-all -s cpdevindex server",
     "buildindex": "node buildIndex prod",
     "cpdevindex": "node buildIndex dev",
-    "server": "browser-sync start -s public -w -f public/**/* -b chrome",
+    "server": "run-script-os",
+    "server:win32": "browser-sync start -s public -w -f public/**/* -b chrome",
+    "server:darwin": "browser-sync start -s public -w -f public/**/* -b '/Applications/Google Chrome.app'",
     "test": "eslint ./public/src/**/**.js"
   },
   "license": "MIT",
   "devDependencies": {
-    "browser-sync": "^2.24.7",
-    "eslint": "^5.5.0",
+    "browser-sync": "^2.26.7",
+    "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-promise": "^4.0.0",
-    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "insert-line": "^1.1.0",
-    "linenumber": "^1.0.0",
-    "npm-run-all": "^4.1.5"
+    "linenumber": "^1.0.1",
+    "npm-run-all": "^4.1.5",
+    "run-script-os": "^1.0.7"
   }
 }
