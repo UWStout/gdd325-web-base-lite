@@ -1,3 +1,5 @@
+// Import global constants
+import CONFIG from './config.js'
 
 class HUDScene extends Phaser.Scene {
   // Runs when this class is initially created (a lot like a constructor).
@@ -7,7 +9,7 @@ class HUDScene extends Phaser.Scene {
     // Did we receive an initialization object
     if (initObj && initObj.events) {
       // Listen for and respond to the hit event
-      initObj.events.on(window.CONFIG.HIT_EVENT, this.updateHits, this)
+      initObj.events.on(CONFIG.HIT_EVENT, this.updateHits, this)
     }
 
     // Initialize hits counter to zero
@@ -21,7 +23,7 @@ class HUDScene extends Phaser.Scene {
       'Information', { font: '24px Arial', fill: '#FFFFFF', align: 'center' })
     this.infoText.setOrigin(0, 0)
 
-    this.hitsText = this.add.text(window.CONFIG.DEFAULT_WIDTH - 10, 10,
+    this.hitsText = this.add.text(CONFIG.DEFAULT_WIDTH - 10, 10,
       'Bounces:    0', { font: '24px Courier', fill: '#FFFFFF', align: 'center' })
     this.hitsText.setOrigin(1, 0)
   }
@@ -32,3 +34,5 @@ class HUDScene extends Phaser.Scene {
     this.hitsText.setText(`Bounces: ${this._hits.toString().padStart(4, ' ')}`)
   }
 }
+
+export default HUDScene

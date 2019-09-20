@@ -1,4 +1,10 @@
-/* global GameScene, StartScene, HUDScene */
+// Import global constants
+import CONFIG from './config.js'
+
+// Import all used scenes
+import GameScene from './GameScene.js'
+import StartScene from './StartScene.js'
+import HUDScene from './HUDScene.js'
 
 // Core phaser configuration object
 let config = {
@@ -9,13 +15,13 @@ let config = {
     parent: 'content',
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_HORIZONTAL,
-    width: window.CONFIG.DEFAULT_WIDTH,
-    height: window.CONFIG.DEFAULT_HEIGHT
+    width: CONFIG.DEFAULT_WIDTH,
+    height: CONFIG.DEFAULT_HEIGHT
   },
   physics: {
     default: 'arcade',
     arcade: {
-      gravity: { y: window.CONFIG.DEFAULT_GRAVITY }
+      gravity: { y: CONFIG.DEFAULT_GRAVITY }
     }
   }
 }
@@ -23,10 +29,10 @@ let config = {
 // Start Phaser by making a Phaser.Game object and passing in the
 // config object from above.  We attach this to 'window' so it will
 // be globally accessible.
-window.game = new Phaser.Game(config)
+let game = new Phaser.Game(config)
 
 // Tell it how to make a GameScene object and let it automatically start
-window.game.scene.add('main', GameScene)
-window.game.scene.add('info', HUDScene)
-window.game.scene.add('start', StartScene)
-window.game.scene.start('start')
+game.scene.add('main', GameScene)
+game.scene.add('info', HUDScene)
+game.scene.add('start', StartScene)
+game.scene.start('start')

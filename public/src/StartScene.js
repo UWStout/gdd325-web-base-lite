@@ -1,10 +1,11 @@
+// Import global constants
+import CONFIG from './config.js'
 
 class StartScene extends Phaser.Scene {
   init () {
     // Show message that things are loading
     this.loadingText = this.add.text(
-      window.CONFIG.DEFAULT_WIDTH / 2,
-      window.CONFIG.DEFAULT_HEIGHT / 2,
+      CONFIG.DEFAULT_WIDTH / 2, CONFIG.DEFAULT_HEIGHT / 2,
       'loading', { font: '16px Arial', fill: '#dddddd', align: 'center' })
     this.loadingText.setOrigin(0.5, 0.5)
   }
@@ -35,10 +36,9 @@ class StartScene extends Phaser.Scene {
 
     // The background message
     let background = this.add.image(
-      window.CONFIG.DEFAULT_WIDTH / 2,
-      window.CONFIG.DEFAULT_HEIGHT / 2,
+      CONFIG.DEFAULT_WIDTH / 2, CONFIG.DEFAULT_HEIGHT / 2,
       'background')
-    let scaleFactor = window.CONFIG.DEFAULT_WIDTH / background.width
+    let scaleFactor = CONFIG.DEFAULT_WIDTH / background.width
     background.setScale(scaleFactor)
     background.setOrigin(0.5, 0.5)
 
@@ -58,3 +58,5 @@ class StartScene extends Phaser.Scene {
     this.music.stop()
   }
 }
+
+export default StartScene

@@ -1,3 +1,5 @@
+// Import global constants
+import CONFIG from './config.js'
 
 class GameScene extends Phaser.Scene {
   // Queue up assets to load from our local assets directory
@@ -8,8 +10,8 @@ class GameScene extends Phaser.Scene {
   // Build the scene by adding GameObjects and configuring specific
   // entities (runs after all queued assets are loaded)
   create () {
-    let worldWidth = window.CONFIG.DEFAULT_WIDTH * 1.5
-    let worldHeight = window.CONFIG.DEFAULT_HEIGHT
+    let worldWidth = CONFIG.DEFAULT_WIDTH * 1.5
+    let worldHeight = CONFIG.DEFAULT_HEIGHT
 
     // The background sky
     let background = this.add.tileSprite(0, 0, worldWidth, worldHeight, 'sky')
@@ -51,7 +53,7 @@ class GameScene extends Phaser.Scene {
     // Setup a world bounds callback
     this.physics.world.on('worldbounds', () => {
       // Emit our custom event to the info scene and play the hit sound
-      this.infoSceneEmitter.emit(window.CONFIG.HIT_EVENT)
+      this.infoSceneEmitter.emit(CONFIG.HIT_EVENT)
       this.hitSound.play()
     }, this)
     this.physics.world.setBounds(0, 0, worldWidth, worldHeight)
@@ -59,7 +61,7 @@ class GameScene extends Phaser.Scene {
     // Setup the camera
     this.cameras.main.startFollow(logo)
     this.cameras.main.setBounds(0, 0, worldWidth, worldHeight)
-    this.cameras.main.setDeadzone(window.CONFIG.DEFAULT_WIDTH * 0.4)
+    this.cameras.main.setDeadzone(CONFIG.DEFAULT_WIDTH * 0.4)
     this.cameras.main.setLerp(0.1, 0.1)
 
     // Start the info overlay scene and pass it our custom event emitter
@@ -77,3 +79,5 @@ class GameScene extends Phaser.Scene {
     this.music.stop()
   }
 }
+
+export default GameScene

@@ -1,4 +1,4 @@
-window.CONFIG = {
+export default {
   DEFAULT_WIDTH: 1000,
   DEFAULT_HEIGHT: 666,
   DEFAULT_GRAVITY: 200,
