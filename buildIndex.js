@@ -10,6 +10,11 @@ const fs = require('fs')
 const linenumber = require('linenumber')
 const insertLine = require('insert-line')
 
+// Library versions
+const PHASER_VER = 'phaser@3.19.0'
+const UPDATE_VER = 'phaser-plugin-update@2.0.3'
+const DEBUG_VER = 'phaser-plugin-debug-draw@2.0.3'
+
 // A few helper functions
 function makeScriptStringCode (code, lib) {
   return `    <script>${code}</script>`
@@ -28,16 +33,16 @@ function getMatchLineNumber (matchString) {
 let mainLib = {
   line: 'LIBS GO HERE',
   items: [
-    { type: 'prod', lib: 'https://cdn.jsdelivr.net/npm/phaser@3.16.1/dist/phaser.min.js' },
-    { type: 'dev', lib: 'https://cdn.jsdelivr.net/npm/phaser@3.16.1/dist/phaser.js' }
+    { type: 'prod', lib: `https://cdn.jsdelivr.net/npm/${PHASER_VER}/dist/phaser.min.js` },
+    { type: 'dev', lib: `https://cdn.jsdelivr.net/npm/${PHASER_VER}/dist/phaser.js` }
   ]
 }
 
 let plugins = {
   line: 'PLUGINS GO HERE',
   items: [
-    { type: 'proddev', lib: 'https://cdn.jsdelivr.net/npm/phaser-plugin-update@1.0.1/dist/UpdatePlugin.js' },
-    { type: 'dev', lib: 'https://cdn.jsdelivr.net/npm/phaser-plugin-debug-draw@1.0.2/dist/PhaserDebugDrawPlugin.js' }
+    { type: 'proddev', lib: `https://cdn.jsdelivr.net/npm/${UPDATE_VER}/dist/PhaserUpdatePlugin.js` },
+    { type: 'dev', lib: `https://cdn.jsdelivr.net/npm/${DEBUG_VER}/dist/PhaserDebugDrawPlugin.js` }
   ]
 }
 
