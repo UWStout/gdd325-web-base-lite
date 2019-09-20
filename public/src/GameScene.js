@@ -34,9 +34,10 @@ class GameScene extends Phaser.Scene {
     logo.setCollideWorldBounds(true)
     logo.body.onWorldBounds = true
 
-    // Make the emitter follow the logo
+    // Make the particle emitter follow the logo
     emitter.startFollow(logo)
 
+    // Respond to any keyboard keyup events
     this.input.keyboard.on('keyup', this.keyReleased, this)
 
     // Make sound and music instances
@@ -44,22 +45,31 @@ class GameScene extends Phaser.Scene {
     this.music = this.sound.add('mainMusic', { volume: 0.2, loop: true })
     this.music.play()
 
+    // A custom event emitter that will talk to the overlaid HUD scene
+    this.infoSceneEmitter = new Phaser.Events.EventEmitter()
+
     // Setup a world bounds callback
-    this.physics.world.on('worldbounds', () => { this.hitSound.play() }, this)
+    this.physics.world.on('worldbounds', () => {
+      // Emit our custom event to the info scene and play the hit sound
+      this.infoSceneEmitter.emit(window.CONFIG.HIT_EVENT)
+      this.hitSound.play()
+    }, this)
     this.physics.world.setBounds(0, 0, worldWidth, worldHeight)
 
+    // Setup the camera
     this.cameras.main.startFollow(logo)
     this.cameras.main.setBounds(0, 0, worldWidth, worldHeight)
     this.cameras.main.setDeadzone(window.CONFIG.DEFAULT_WIDTH * 0.4)
     this.cameras.main.setLerp(0.1, 0.1)
 
-    this.scene.run('info')
+    // Start the info overlay scene and pass it our custom event emitter
+    this.scene.run('info', { events: this.infoSceneEmitter })
   }
 
   update () {
     console.log('Main scene is running')
   }
-  
+
   keyReleased () {
     console.log('switching scenes')
     this.scene.stop('info')
